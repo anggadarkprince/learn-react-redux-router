@@ -1,0 +1,70 @@
+.recipe-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.recipe-form-line {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-form-line.input-inline {
+    flex-direction: row;
+}
+
+.recipe-form-line.input-inline label {
+    margin-right: 10px;
+    padding: 7px 0;
+    margin-bottom: 0;
+}
+
+.recipe-form-line.input-inline input,
+.recipe-form-line.input-inline textarea {
+    margin-bottom: 0;
+}
+
+.recipe-form-line.input-group input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.recipe-form-line.input-inline input + button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+}
+
+.recipe-form-line label {
+    margin-bottom: 7px;
+    display: block;
+}
+
+.recipe-form-line input,
+.recipe-form-line textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    padding: 7px 10px;
+    font-family: inherit;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.close-button {
+    background: transparent no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 0.9em;
+    color: #777;
+    text-shadow: 0 1px 0 #fff;
+    padding: 7px 10px;
+}

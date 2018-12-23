@@ -7,8 +7,8 @@ header {
     padding: 0 15px;
 }
 
-header h1 {
-    text-align: center;
+header h2 {
+    margin: 15px 0;
 }
 
 header li {

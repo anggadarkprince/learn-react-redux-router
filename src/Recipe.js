@@ -9,10 +9,12 @@ class Recipe extends Component {
         ingredients: PropTypes.arrayOf(PropTypes.string),
         instructions: PropTypes.string.isRequired,
         img: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        onDeleteRecipe: PropTypes.func.isRequired
     }
 
     render() {
-        const {title, instructions, img} = this.props;
+        const {id, title, instructions, img, onDeleteRecipe} = this.props;
         const ingredients = this.props.ingredients.map((ingredient, index) => (<li key={index}>{ingredient}</li>));
         return (
             <div className='recipe-card'>
@@ -20,10 +22,17 @@ class Recipe extends Component {
                 </div>
                 <div className='recipe-card-content'>
                     <h3 className='recipe-title'>{title}</h3>
+
                     <h4>Ingredients:</h4>
-                    <ul>{ingredients}</ul>
+                    <ul className='recipe-ingredient'>{ingredients}</ul>
+
                     <h4>Instructions:</h4>
                     <p>{instructions}</p>
+
+                    <button className="button-delete"
+                            onClick={() => onDeleteRecipe(id)}>
+                        DELETE
+                    </button>
                 </div>
             </div>
         )
