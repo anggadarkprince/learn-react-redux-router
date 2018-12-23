@@ -1,0 +1,17 @@
+.recipe-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 581px) {
+    .recipe-list {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 580px) {
+    .recipe-list {
+        display: block;
+    }
+}
