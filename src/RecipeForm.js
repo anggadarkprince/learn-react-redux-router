@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './RecipeForm.css';
+import {withRouter} from "react-router-dom";
 
 class RecipeForm extends Component {
 
@@ -28,6 +29,7 @@ class RecipeForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.onSaveRecipe({...this.state});
+        this.props.history.push('/');
         this.setState({
             title: '',
             instructions: '',
@@ -136,4 +138,4 @@ class RecipeForm extends Component {
     }
 }
 
-export default RecipeForm;
+export default withRouter(RecipeForm);
