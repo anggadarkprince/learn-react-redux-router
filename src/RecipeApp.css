@@ -22,3 +22,24 @@ button:hover {
 button:active {
     background: #dfdfdf;
 }
+
+.content-wrapper {
+    padding: 20px;
+    min-height: calc(100vh - 120px);
+}
+
+footer {
+    padding: 20px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    background: #f3f3f3;
+}
+
+footer p {
+    margin: 0;
+}
+
+.footer-links > * {
+    padding: 10px;
+}

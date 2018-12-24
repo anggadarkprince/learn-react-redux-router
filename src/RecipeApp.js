@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import {Switch, Route, withRouter} from 'react-router-dom';
 import './RecipeApp.css';
 import RecipeList from "./RecipeList";
 import Navbar from "./Navbar";
 import RecipeForm from "./RecipeForm";
 import Modal from './Modal';
+import About from "./About";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 class RecipeApp extends Component {
 
@@ -49,20 +53,21 @@ class RecipeApp extends Component {
             ],
             nextRecipeId: 5,
             isModalRecipeOpen: false
-        }
+        };
 
         this.onSaveRecipe = this.onSaveRecipe.bind(this);
         this.onDeleteRecipe = this.onDeleteRecipe.bind(this);
     }
 
     onSaveRecipe(recipe) {
-        this.setState((prevState, props) => {
+        this.setState((prevState) => {
             const newRecipe = {...recipe, id: this.state.nextRecipeId};
+            this.props.history.push('/');
             return {
                 recipes: [...this.state.recipes, newRecipe],
-                nextRecipeId: prevState.nextRecipeId++
+                nextRecipeId: prevState.nextRecipeId + 1
             }
-        })
+        });
     }
 
     onDeleteRecipe(id) {
@@ -78,14 +83,19 @@ class RecipeApp extends Component {
             ...prevState,
             isModalRecipeOpen: !prevState.isModalRecipeOpen
         }));
-    }
+    };
 
     render() {
         return (
             <div className="App">
                 <Navbar toggleModalRecipe={this.toggleModalRecipe}/>
-
-                <RecipeList recipes={this.state.recipes} onDeleteRecipe={this.onDeleteRecipe}/>
+                <Switch>
+                    <Route exact={true} path="/" render={(props) => (
+                        <RecipeList {...props} recipes={this.state.recipes} onDeleteRecipe={this.onDeleteRecipe}/>
+                    )}/>
+                    <Route exact={true} path="/contact" component={Contact}/>
+                    <Route exact={true} path="/about" component={About}/>
+                </Switch>
 
                 {this.state.isModalRecipeOpen &&
                 <Modal>
@@ -95,9 +105,10 @@ class RecipeApp extends Component {
                         toggleModalRecipe={this.toggleModalRecipe}/>
                 </Modal>
                 }
+                <Footer/>
             </div>
         );
     }
 }
 
-export default RecipeApp;
+export default withRouter(RecipeApp);
